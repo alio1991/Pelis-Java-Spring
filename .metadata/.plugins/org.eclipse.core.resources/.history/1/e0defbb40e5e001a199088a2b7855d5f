@@ -1,0 +1,52 @@
+package com.example.demo.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.dao.PeliculaRepo;
+import com.example.demo.model.Pelicula;
+
+@RestController
+@RequestMapping("/peliculas")
+public class Controller {
+	
+	@Autowired
+	PeliculaRepo repo;
+	
+	@GetMapping
+	public Iterable<Pelicula> get (){
+		return repo.findAll();
+	}
+
+	@RequestMapping(value = "/peli", method = RequestMethod.GET)
+	public Optional<Pelicula> getPeli(Integer id) {
+		return repo.findById(id);
+	}
+	
+	
+	@RequestMapping(value = "/peli", method = RequestMethod.DELETE)
+	public String deletePeli(Integer id) {
+		repo.deleteById(id);
+		return "Movie Deleted";
+	}
+	
+	@RequestMapping(value = "/peli")
+	public String addPeli(Pelicula peli) {
+		repo.save(peli);
+		return "Movie Created";
+	}
+//	@RequestMapping("/modifyPeli")
+//	public String modifyPeli(Pelicula peli) {
+//		if(repo.existsById(peli.getId())) {
+//			this.deletePeli(peli.getId());
+//			this.addPeli(peli);
+//		}
+//		return "Previous movie:"+peli;
+//	}
+}

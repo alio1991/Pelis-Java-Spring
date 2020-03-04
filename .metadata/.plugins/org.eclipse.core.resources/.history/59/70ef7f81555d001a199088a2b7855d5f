@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE `client`
+(
+    `dni` VARCHAR(9) PRIMARY KEY,
+    `name` VARCHAR(255) ,
+    `last_name` VARCHAR(255),
+    `phone` VARCHAR(255)
+);
+
+INSERT INTO `client` VALUES ('75215475S', 'francisco', 'Perez'  , '666225148');
+INSERT INTO `client` VALUES ('75115475S', 'maria'    , 'Ramirez', '666666666');
+INSERT INTO `client` VALUES ('74525475S', 'francisco', 'Blanco' , '777777777');
+INSERT INTO `client` VALUES ('75475475S', 'Rosario'  , 'Ruiz'   , '333333333');

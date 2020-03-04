@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `pelicula`;
+CREATE TABLE `pelicula`
+(
+    `name` VARCHAR(255)  PRIMARY KEY,
+    `score` VARCHAR(9),
+    `genre` VARCHAR(255)
+);
+
+INSERT INTO `pelicula` VALUES ('Star Wars','100', 'ficción');
+INSERT INTO `pelicula` VALUES ('Señor Anillos'    ,'99',  'ficción');
+INSERT INTO `pelicula` VALUES ('El Camino','80',  'ficción');
+INSERT INTO `pelicula` VALUES ('Anacleto'  ,'70',  'ficción');

@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS `pelicula`;
+CREATE TABLE `pelicula`
+(
+    `id` VARCHAR(255)  PRIMARY KEY AUTO_INCREMENT,
+    `title` VARCHAR(255),
+    `genre` VARCHAR(255),
+    `year` VARCHAR(255),
+    `oscars` VARCHAR(255)
+);
+
+--CREATE TABLE `actor`
+--(
+--    `id` VARCHAR(255)  PRIMARY KEY auto_increment,
+--    `name` VARCHAR(255)  notnul,
+--    `surname` VARCHAR(255),
+--);
+
+--CREATE TABLE `relacion`
+--(
+--    `id` VARCHAR(255)  PRIMARY KEY auto_increment,
+--    `idCharacter` VARCHAR(255)  FOREIGN KEY,
+--    `idMovie` VARCHAR(255)  FOREIGN KEY, 
+--);
+
+INSERT INTO `pelicula` VALUES ('1','Star Wars','ficción','1995','0');
+INSERT INTO `pelicula` VALUES ('2','Señor Anillos','ficción','1999','0');
+INSERT INTO `pelicula` VALUES ('3','El Camino','ficción','1985','0');
+INSERT INTO `pelicula` VALUES ('4','Anacleto','ficción','2010','2');
+ 

@@ -1,0 +1,31 @@
+DROP TABLE IF EXISTS `relacion` CASCADE;
+DROP TABLE IF EXISTS `actor` CASCADE;
+DROP TABLE IF EXISTS `pelicula` CASCADE;
+CREATE TABLE `PELICULA`
+(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL, 
+    `genre` VARCHAR(255),
+    `year` VARCHAR(255),
+    `oscars` VARCHAR(255)
+);
+
+CREATE TABLE `ACTOR`
+(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255),
+    `surname` VARCHAR(255)
+);
+
+
+INSERT INTO `pelicula` VALUES (default,'Star Wars','ficción','1995','0');
+INSERT INTO `pelicula` VALUES (default,'Señor Anillos','suspense','1999','0');
+INSERT INTO `pelicula` VALUES (default,'El Camino','drama','1985','0');
+INSERT INTO `pelicula` VALUES (default,'Anacleto','comedia','2010','2');
+
+INSERT INTO `actor` VALUES (default,'Fernando','Pérez');
+INSERT INTO `actor` VALUES (default,'Jessica','Jiménez');
+
+
+
+ 

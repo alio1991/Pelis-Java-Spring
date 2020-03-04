@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS `pelicula`;
+CREATE TABLE `pelicula`
+(
+    `idMovie` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL, 
+    `genre` VARCHAR(255),
+    `year` VARCHAR(255),
+    `oscars` VARCHAR(255)  
+);
+
+CREATE TABLE `actor`
+(
+    `idCharacter` INT NULL AUTO_INCREMENT PRIMARY KEY NOT,
+    `name` VARCHAR(255) NOT NULL,
+    `surname` VARCHAR(255),
+);
+
+CREATE TABLE `relacion`
+(
+    `idLink` INT NULL AUTO_INCREMENT PRIMARY KEY NOT,
+    `idCharacter` INT NOT NULL FOREIGN KEY,
+    `idMovie` INT NOT NULL FOREIGN KEY, 
+);
+
+INSERT INTO `pelicula` VALUES (default,'Star Wars','ficción','1995','0');
+INSERT INTO `pelicula` VALUES (default,'Señor Anillos','suspense','1999','0');
+INSERT INTO `pelicula` VALUES (default,'El Camino','drama','1985','0');
+INSERT INTO `pelicula` VALUES (default,'Anacleto','comedia','2010','2');
+ 
