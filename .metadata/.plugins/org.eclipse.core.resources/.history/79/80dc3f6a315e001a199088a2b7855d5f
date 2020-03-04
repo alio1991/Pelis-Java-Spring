@@ -12,8 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity(name = "Pelicula")
 @Table(name = "pelicula")
 public class Pelicula {
@@ -35,7 +33,6 @@ public class Pelicula {
 			joinColumns = @JoinColumn(name = "idMovie"),
 			inverseJoinColumns = @JoinColumn(name = "idCharacter")
 	)
-	@JsonIgnoreProperties("peliculas")
 	private Set<Actor> characters;
 	 
 	
