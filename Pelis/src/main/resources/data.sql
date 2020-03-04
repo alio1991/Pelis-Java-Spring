@@ -18,14 +18,30 @@ CREATE TABLE `ACTOR`
 
 
 INSERT INTO `PELICULA` VALUES (default,'Star Wars','ficción','1995','0');
-INSERT INTO `PELICULA` VALUES (default,'Señor Anillos','suspense','1999','0');
+INSERT INTO `PELICULA` VALUES (default,'Señor Anillos','suspense','1999','1');
 INSERT INTO `PELICULA` VALUES (default,'El Camino','drama','1985','0');
 INSERT INTO `PELICULA` VALUES (default,'Anacleto','comedia','2010','2');
+INSERT INTO `PELICULA` VALUES (default,'Desde que amanece apetece','comedia','2003','0');
 
-INSERT INTO `ACTOR` VALUES (default,'Fernando','Pérez');
-INSERT INTO `ACTOR` VALUES (default,'Jessica','Jiménez');
 
-INSERT INTO `ACTOR_PELICULA` VALUES (1,1);
+INSERT INTO `ACTOR` VALUES (default,'Florentino','Fernández');
+INSERT INTO `ACTOR` VALUES (default,'Santiago','Segura');
+INSERT INTO `ACTOR` VALUES (default,'Maxi','Iglesias');
+INSERT INTO `ACTOR` VALUES (default,'Jessica','Alba');
+INSERT INTO `ACTOR` VALUES (default,'Morgan','Freeman');
+INSERT INTO `ACTOR` VALUES (default,'Bruce','willis');
+
+
+INSERT INTO `PELICULA_ACTOR` VALUES (1,1);
+INSERT INTO `PELICULA_ACTOR` VALUES (1,2);
+INSERT INTO `PELICULA_ACTOR` VALUES (1,3);
+INSERT INTO `PELICULA_ACTOR` VALUES (2,3);
+INSERT INTO `PELICULA_ACTOR` VALUES (3,4);
+INSERT INTO `PELICULA_ACTOR` VALUES (4,5);
+INSERT INTO `PELICULA_ACTOR` VALUES (5,6);
+INSERT INTO `PELICULA_ACTOR` VALUES (5,2);
+
+
 
 
 

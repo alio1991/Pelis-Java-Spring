@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.ActorRepo;
 import com.example.demo.dao.PeliculaRepo;
-import com.example.demo.model.Actor;
-import com.example.demo.model.Pelicula;
+import com.example.demo.entity.Actor;
+import com.example.demo.entity.Pelicula;
 
 @RestController
 @RequestMapping("/")
