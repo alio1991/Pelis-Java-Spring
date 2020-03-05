@@ -1,0 +1,29 @@
+package com.example.demo.dto;
+
+import com.example.demo.entity.Pelicula;
+
+public class PeliculaDTO{
+
+	private Integer id;
+	private String title;
+
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+
+}

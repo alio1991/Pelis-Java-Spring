@@ -1,0 +1,45 @@
+package com.example.demo.dto;
+
+import java.util.Set;
+
+public class PeliculaDTO {
+
+	private Integer id;
+	private String title;
+	private String genre;
+	private String year;
+	private String oscars;
+	
+	private Set<ActorDTO> characters;
+	 
+	
+	public Integer getId() { 
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public void setOscars(String oscars) {
+		this.oscars = oscars;
+	}
+	public void setCharacters(Set<ActorDTO> characters) {
+		this.characters = characters;
+	}
+	
+
+}

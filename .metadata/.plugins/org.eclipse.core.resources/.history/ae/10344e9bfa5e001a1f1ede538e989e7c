@@ -1,0 +1,25 @@
+package com.example.demo.mapper;
+
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.dto.PeliculaDTO;
+import com.example.demo.entity.Pelicula;
+import com.example.demo.repository.PeliculaRepo;
+
+public class PeliculaMapper {
+	
+	@Autowired
+	PeliculaRepo peliculas;
+	
+	public static Optional<PeliculaDTO> convertToDto(Optional<Pelicula> peli) {
+		ModelMapper modelMapper = new ModelMapper();
+		Pelicula entity = this.peliculas.save(peli.get());
+		PeliculaDTO dto  = modelMapper.map(entity, PeliculaDTO.class);
+		Optional<PeliculaDTO> optDTO = Optional.of(dto);
+		return optDTO;
+	} 
+
+}
