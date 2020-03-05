@@ -21,9 +21,9 @@ public class Pelicula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Integer id;
 	private String title;
-	private String genre;
+//	private String genre;
 	private String year;
-	private String oscars;
+//	private String oscars;
 	
 	@ManyToMany(
 			cascade = {

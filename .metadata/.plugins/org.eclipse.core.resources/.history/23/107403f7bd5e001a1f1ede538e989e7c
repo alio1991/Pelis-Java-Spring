@@ -4,15 +4,15 @@ CREATE TABLE `PELICULA`
 (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `title` VARCHAR(255) NOT NULL, 
-    `genre` VARCHAR(255) NOT NULL,
-    `year` VARCHAR(255) NOT NULL,
-    `oscars` VARCHAR(255) NOT NULL
+    `genre` VARCHAR(255),
+    `year` VARCHAR(255),
+    `oscars` VARCHAR(255)
 );
 
 CREATE TABLE `ACTOR`
 (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
+    `name` VARCHAR(255),
     `surname` VARCHAR(255)
 );
 

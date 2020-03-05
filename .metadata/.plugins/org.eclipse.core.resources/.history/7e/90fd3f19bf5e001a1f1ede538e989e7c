@@ -51,6 +51,9 @@ public class Pelicula {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getGenre() {
+		return genre;
+	}
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
@@ -60,8 +63,14 @@ public class Pelicula {
 	public void setYear(String year) {
 		this.year = year;
 	}
+	public String getOscarAwards() {
+		return oscars;
+	}
 	public void setOscars(String oscars) {
 		this.oscars = oscars;
+	}
+	public Set<Actor> getCharacters() {
+		return characters;
 	}
 	public void setCharacters(Set<Actor> characters) {
 		this.characters = characters;

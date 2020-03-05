@@ -60,8 +60,8 @@ public class Pelicula {
 	public void setYear(String year) {
 		this.year = year;
 	}
-	public void setOscars(String oscars) {
-		this.oscars = oscars;
+	public void setOscarAwards(String oscarAwards) {
+		this.oscars = oscarAwards;
 	}
 	public void setCharacters(Set<Actor> characters) {
 		this.characters = characters;
