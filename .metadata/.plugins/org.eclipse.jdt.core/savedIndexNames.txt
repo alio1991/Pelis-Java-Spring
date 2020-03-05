@@ -49,7 +49,6 @@ INDEX VERSION 1.131+/Users/alioagudo/Documents/Backend/pelis-onboarding/.metadat
 2886460088.index
 2516093118.index
 565384500.index
-1328356502.index
 2275008680.index
 824414909.index
 2846781370.index
