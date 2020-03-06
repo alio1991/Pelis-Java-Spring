@@ -26,30 +26,31 @@ public class MovieController {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Iterable<MovieSimpleDTO> getMovies (){ 
+	public Iterable<MovieSimpleDTO> getPelis (){ 
 		return Mapper.convertPeliculaToDto(movies.findAll(),movies);
 	}
 
 	@RequestMapping(value = "/peli", method = RequestMethod.GET)
-	public Optional<MovieDTO> getMovie(Integer id) {
+	public Optional<MovieDTO> getPeli(Integer id) {
 		return Mapper.convertPeliculaToDto(movies.findById(id),movies);
 	}
 
 	@RequestMapping(value = "/peli", method = RequestMethod.DELETE)
-	public String deleteMovie(Integer id) {
+	public String deletePeli(Integer id) {
 		movies.deleteById(id);
 		return "Movie DELETED";
 	}
 	
 	@RequestMapping(value = "/peli", method = RequestMethod.PUT)
-	public String modifyMovie(Movie peli) {
+	public String modifyPeli(Movie peli) {
 		movies.save(peli);
 		return "Movie UPDATED";
 	}
  
 	@RequestMapping(value = "/peli", method = RequestMethod.POST) 
-	public Movie addMovie(Movie peli) {
-		return movies.save(peli);
+	public String addPeli(Movie peli) {
+		movies.save(peli);
+		return "Movie CREATED";
 	}
  
 }

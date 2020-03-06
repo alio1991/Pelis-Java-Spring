@@ -1,0 +1,34 @@
+package com.pelis.onboarding.controller;
+
+import static org.hamcrest.CoreMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+
+
+@SpringBootTest
+class MovieControllerTest {
+	
+	@InjectMocks
+	private MovieController controller;
+
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	public void deleteMovie() {
+		assertEquals(controller.deleteMovie(1), HttpStatus.OK);
+	}
+
+
+}

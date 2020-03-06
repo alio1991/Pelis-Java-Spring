@@ -1,0 +1,46 @@
+package com.pelis.onboarding.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+
+import com.pelis.onboarding.entity.Movie;
+
+
+@SpringBootTest
+class MovieControllerTest {
+	
+	@InjectMocks
+	private MovieController controller;
+
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	public void createMovie() {
+		assertEquals(controller.addMovie(new Movie()), HttpStatus.OK);
+	}
+	
+	@Test
+	public void updateMovie() {
+		assertEquals(controller.modifyMovie(new Movie()), HttpStatus.OK);
+	}
+	
+	@Test
+	public void getMovie() {
+		assertEquals(controller.getMovie(1), HttpStatus.OK);
+	}
+	
+	@Test
+	public void deleteMovie() {
+		assertEquals(controller.deleteMovie(1), HttpStatus.OK);
+	}
+
+
+
+}

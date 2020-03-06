@@ -29,7 +29,6 @@ class MovieControllerTest {
 		testMovie.setGenre("Drama");
 		testMovie.setYear("2010");
 		testMovie.setOscarAwards("1");
-		System.out.println(controller.addMovie(testMovie));
 		assertEquals(controller.addMovie(testMovie), HttpStatus.OK);
 	}
 	

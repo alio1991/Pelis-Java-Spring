@@ -29,24 +29,23 @@ class MovieControllerTest {
 		testMovie.setGenre("Drama");
 		testMovie.setYear("2010");
 		testMovie.setOscarAwards("1");
-		System.out.println(controller.addMovie(testMovie));
 		assertEquals(controller.addMovie(testMovie), HttpStatus.OK);
 	}
 	
-//	@Test
-//	public void updateMovie() {
-//		assertEquals(controller.modifyMovie(new Movie()), HttpStatus.OK);
-//	}
-//	
-//	@Test
-//	public void getMovie() {
-//		assertEquals(controller.getMovie(1), HttpStatus.OK);
-//	}
-//	
-//	@Test
-//	public void deleteMovie() {
-//		assertEquals(controller.deleteMovie(1), HttpStatus.OK);
-//	}
+	@Test
+	public void updateMovie() {
+		assertEquals(controller.modifyMovie(new Movie()), HttpStatus.OK);
+	}
+	
+	@Test
+	public void getMovie() {
+		assertEquals(controller.getMovie(1), HttpStatus.OK);
+	}
+	
+	@Test
+	public void deleteMovie() {
+		assertEquals(controller.deleteMovie(1), HttpStatus.OK);
+	}
 
 
 

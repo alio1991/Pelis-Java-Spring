@@ -30,6 +30,7 @@ class MovieControllerTest {
 		testMovie.setYear("2010");
 		testMovie.setOscarAwards("1");
 		System.out.println(controller.addMovie(testMovie));
+		debugger;
 		assertEquals(controller.addMovie(testMovie), HttpStatus.OK);
 	}
 	

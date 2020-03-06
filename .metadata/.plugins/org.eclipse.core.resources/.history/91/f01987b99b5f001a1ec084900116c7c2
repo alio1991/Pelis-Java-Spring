@@ -48,8 +48,9 @@ public class MovieController {
 	}
  
 	@RequestMapping(value = "/peli", method = RequestMethod.POST) 
-	public Movie addMovie(Movie peli) {
-		return movies.save(peli);
+	public String addMovie(Movie peli) {
+		movies.save(peli);
+		return "Movie CREATED";
 	}
  
 }
