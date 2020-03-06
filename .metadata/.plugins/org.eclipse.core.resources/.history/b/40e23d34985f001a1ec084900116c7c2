@@ -1,0 +1,55 @@
+package com.pelis.onboarding.controller;
+
+import java.util.Optional;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pelis.onboarding.dto.ActorDTO;
+import com.pelis.onboarding.dto.ActorSimpleDTO;
+import com.pelis.onboarding.entity.Actor;
+import com.pelis.onboarding.mapper.Mapper;
+import com.pelis.onboarding.repository.ActorRepository;
+
+@RestController
+@RequestMapping("/actores")
+public class ActorController {
+	
+	ActorRepository actors;
+	 
+	/**
+	 * CRUD ACTORES
+	 * @return
+	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public Iterable<ActorSimpleDTO> getActores (){
+		return Mapper.convertActorToDto(actors.findAll(),actors);
+	}
+
+	@RequestMapping(value = "/actor", method = RequestMethod.GET)
+	public Optional<ActorDTO> getActor(Integer id) {
+		return Mapper.convertActorToDto(actors.findById(id),actors);
+	}
+	
+	
+	@RequestMapping(value = "/actor", method = RequestMethod.DELETE)
+	public String deleteActor(Integer id) {
+		actors.deleteById(id);
+		return "Actor DELETED";
+	}
+	
+	@RequestMapping(value = "/actor", method = RequestMethod.PUT)
+	public String modifyActor(Actor actor) {
+		actors.save(actor);
+		return "Actor UPDATED";
+	}
+	
+	@RequestMapping(value = "/actor", method = RequestMethod.POST)
+	public String addActor(Actor actor) {
+		actors.save(actor);
+		return "Actor CREATED";
+	}
+	
+}

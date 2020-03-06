@@ -38,3 +38,8 @@
 1583484072625	Rename field 'characters'
 1583484151132	Rename field 'peliculas'
 1583484157717	Rename field 'actores'
+1583491157761	Rename package 'com.pelis.onboarding'
+1583491164814	Delete element
+1583491175559	Delete element
+1583491334775	Rename type 'ActorController'
+1583491921837	Delete element
