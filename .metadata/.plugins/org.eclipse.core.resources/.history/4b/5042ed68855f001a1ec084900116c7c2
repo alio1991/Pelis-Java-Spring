@@ -1,0 +1,96 @@
+package com.pelis.onboarding.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pelis.onboarding.dto.ActorDTO;
+import com.pelis.onboarding.dto.ActorSimpleDTO;
+import com.pelis.onboarding.dto.MovieDTO;
+import com.pelis.onboarding.dto.MovieSimpleDTO;
+import com.pelis.onboarding.entity.Actor;
+import com.pelis.onboarding.entity.Pelicula;
+import com.pelis.onboarding.mapper.Mapper;
+import com.pelis.onboarding.repository.ActorRepository;
+import com.pelis.onboarding.repository.MoviesRepository;
+
+@RestController
+@RequestMapping("/")
+public class Controller {
+	
+	@Autowired
+	MoviesRepository peliculas;
+	@Autowired
+	ActorRepository actores;
+
+	/**
+	 * CRUD PELICULAS
+	 * @return
+	 */
+	@RequestMapping(value = "peliculas/", method = RequestMethod.GET)
+	public Iterable<MovieSimpleDTO> getPelis (){ 
+		return Mapper.convertPeliculaToDto(peliculas.findAll(),peliculas);
+	}
+
+	@RequestMapping(value = "peliculas/peli", method = RequestMethod.GET)
+	public Optional<MovieDTO> getPeli(Integer id) {
+		return Mapper.convertPeliculaToDto(peliculas.findById(id),peliculas);
+	}
+	
+	@RequestMapping(value = "peliculas/peli", method = RequestMethod.DELETE)
+	public String deletePeli(Integer id) {
+		peliculas.deleteById(id);
+		return "Movie DELETED";
+	}
+	 
+	@RequestMapping(value = "peliculas/peli", method = RequestMethod.PUT)
+	public String modifyPeli(Pelicula peli) {
+		peliculas.save(peli);
+		return "Movie UPDATED";
+	}
+ 
+	@RequestMapping(value = "peliculas/peli", method = RequestMethod.POST)
+	public String addPeli(Pelicula peli) {
+		peliculas.save(peli);
+		return "Movie CREATED";
+	}
+ 
+	 
+	/**
+	 * CRUD ACTORES
+	 * @return
+	 */
+	@RequestMapping(value = "actores/", method = RequestMethod.GET)
+	public Iterable<ActorSimpleDTO> getActores (){
+		return Mapper.convertActorToDto(actores.findAll(),actores);
+	}
+
+	@RequestMapping(value = "actores/actor", method = RequestMethod.GET)
+	public Optional<ActorDTO> getActor(Integer id) {
+		return Mapper.convertActorToDto(actores.findById(id),actores);
+	}
+	
+	
+	@RequestMapping(value = "actores/actor", method = RequestMethod.DELETE)
+	public String deleteActor(Integer id) {
+		actores.deleteById(id);
+		return "Character DELETED";
+	}
+	
+	@RequestMapping(value = "actores/actor", method = RequestMethod.PUT)
+	public String modifyActor(Actor actor) {
+		actores.save(actor);
+		return "Character UPDATED";
+	}
+	
+	@RequestMapping(value = "actores/actor", method = RequestMethod.POST)
+	public String addActor(Actor actor) {
+		actores.save(actor);
+		return "Character CREATED";
+	}
+	
+}

@@ -1,0 +1,63 @@
+package com.pelis.onboarding.mapper;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.pelis.onboarding.dto.ActorDTO;
+import com.pelis.onboarding.dto.ActorSimpleDTO;
+import com.pelis.onboarding.dto.PeliculaDTO;
+import com.pelis.onboarding.dto.PeliculaSimpleDTO;
+import com.pelis.onboarding.entity.Actor;
+import com.pelis.onboarding.entity.Pelicula;
+import com.pelis.onboarding.repository.ActorRepo;
+import com.pelis.onboarding.repository.MoviesRepository;
+
+public class Mapper {
+
+	@Autowired
+	MoviesRepository peliculas;
+
+	
+	public static Iterable<PeliculaSimpleDTO> convertPeliculaToDto(Iterable<Pelicula> pelis, MoviesRepository repo) {
+		ModelMapper modelMapper = new ModelMapper();
+		ArrayList<PeliculaSimpleDTO> arrDTO = new ArrayList<PeliculaSimpleDTO>();
+		for(Pelicula peli : pelis) {
+			Pelicula entity = repo.save(peli);
+			PeliculaSimpleDTO dto  = modelMapper.map(entity, PeliculaSimpleDTO.class);
+			arrDTO.add(dto);
+		}
+		Iterable<PeliculaSimpleDTO> iterableDTO = arrDTO;
+		return iterableDTO;
+	} 
+	
+	public static Optional<PeliculaDTO> convertPeliculaToDto(Optional<Pelicula> peli, MoviesRepository repo) {
+		ModelMapper modelMapper = new ModelMapper();
+		Pelicula entity = repo.save(peli.get());
+		PeliculaDTO dto  = modelMapper.map(entity, PeliculaDTO.class);
+		Optional<PeliculaDTO> optDTO = Optional.of(dto);
+		return optDTO;
+	} 
+	
+	public static Iterable<ActorSimpleDTO> convertActorToDto(Iterable<Actor> actores, ActorRepo repo) {
+		ModelMapper modelMapper = new ModelMapper();
+		ArrayList<ActorSimpleDTO> arrDTO = new ArrayList<ActorSimpleDTO>();
+		for(Actor actor : actores) {
+			Actor entity = repo.save(actor);
+			ActorSimpleDTO dto  = modelMapper.map(entity, ActorSimpleDTO.class);
+			arrDTO.add(dto);
+		}
+		Iterable<ActorSimpleDTO> iterableDTO = arrDTO;
+		return iterableDTO;
+	} 
+	
+	public static Optional<ActorDTO> convertActorToDto(Optional<Actor> actor, ActorRepo repo) {
+		ModelMapper modelMapper = new ModelMapper();
+		Actor entity = repo.save(actor.get());
+		ActorDTO dto  = modelMapper.map(entity, ActorDTO.class);
+		Optional<ActorDTO> optDTO = Optional.of(dto);
+		return optDTO;
+	} 
+}
