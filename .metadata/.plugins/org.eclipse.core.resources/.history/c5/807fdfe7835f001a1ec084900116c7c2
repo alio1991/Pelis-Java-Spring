@@ -83,16 +83,11 @@ public class Controller {
 		return "Character DELETED";
 	}
 	
-	@RequestMapping(value = "actores/actor", method = RequestMethod.PUT)
-	public String modifyActor(Actor actor) {
-		actores.save(actor);
-		return "Character UPDATED";
-	}
-	
-	@RequestMapping(value = "actores/actor", method = RequestMethod.POST)
+	@RequestMapping(value = "actores/actor")
 	public String addActor(Actor actor) {
 		actores.save(actor);
-		return "Character CREATED";
+		return "Character CREATED/UPDATED";
 	}
 	
+
 }

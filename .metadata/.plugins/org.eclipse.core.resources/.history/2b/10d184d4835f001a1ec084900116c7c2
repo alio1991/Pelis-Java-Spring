@@ -38,10 +38,18 @@ public class Controller {
 		return MapperDTO.convertPeliculaToDto(peliculas.findAll(),peliculas);
 	}
 
+//	@RequestMapping(value = "peliculas/peli", method = RequestMethod.GET)
+//	public Optional<Pelicula> getPeli(Integer id) {
+//		return peliculas.findById(id);
+//		
+//	}
+//	
 	@RequestMapping(value = "peliculas/peli", method = RequestMethod.GET)
 	public Optional<PeliculaDTO> getPeli(Integer id) {
 		return MapperDTO.convertPeliculaToDto(peliculas.findById(id),peliculas);
+		
 	}
+	
 	
 	@RequestMapping(value = "peliculas/peli", method = RequestMethod.DELETE)
 	public String deletePeli(Integer id) {
@@ -49,16 +57,10 @@ public class Controller {
 		return "Movie DELETED";
 	}
 	 
-	@RequestMapping(value = "peliculas/peli", method = RequestMethod.PUT)
-	public String modifyPeli(Pelicula peli) {
-		peliculas.save(peli);
-		return "Movie UPDATED";
-	}
- 
-	@RequestMapping(value = "peliculas/peli", method = RequestMethod.POST)
+	@RequestMapping(value = "peliculas/peli")
 	public String addPeli(Pelicula peli) {
 		peliculas.save(peli);
-		return "Movie CREATED";
+		return "Movie CREATED/UPDATED";
 	}
  
 	 
@@ -83,16 +85,11 @@ public class Controller {
 		return "Character DELETED";
 	}
 	
-	@RequestMapping(value = "actores/actor", method = RequestMethod.PUT)
-	public String modifyActor(Actor actor) {
-		actores.save(actor);
-		return "Character UPDATED";
-	}
-	
-	@RequestMapping(value = "actores/actor", method = RequestMethod.POST)
+	@RequestMapping(value = "actores/actor")
 	public String addActor(Actor actor) {
 		actores.save(actor);
-		return "Character CREATED";
+		return "Character CREATED/UPDATED";
 	}
 	
+
 }
