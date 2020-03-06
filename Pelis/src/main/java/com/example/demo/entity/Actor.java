@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 @Entity(name = "Actor")
 @Table(name = "actor")
@@ -26,7 +24,6 @@ public class Actor {
 	        cascade = {CascadeType.PERSIST, CascadeType.MERGE}, 
 	        mappedBy = "characters"
 	)
-	@JsonIgnoreProperties("characters")
 	private Set<Pelicula> peliculas;
 
 	

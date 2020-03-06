@@ -2,19 +2,21 @@ package com.example.demo.dto;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class ActorDTO {
 
 	private Integer id;
 	private String name;
 	private String surname;
-
-	private Set<PeliculaDTO> peliculas;
+	@JsonIgnoreProperties("characters")
+	private Set<PeliculaSimpleDTO> peliculas;
 
 	
-	public Set<PeliculaDTO> getPeliculas() {
+	public Set<PeliculaSimpleDTO> getPeliculas() {
 		return peliculas;
 	}
-	public void setPeliculas(Set<PeliculaDTO> peliculas) {
+	public void setPeliculas(Set<PeliculaSimpleDTO> peliculas) {
 		this.peliculas = peliculas;
 	}
 	

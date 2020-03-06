@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.ActorDTO;
+import com.example.demo.dto.ActorSimpleDTO;
 import com.example.demo.dto.PeliculaDTO;
+import com.example.demo.dto.PeliculaSimpleDTO;
 import com.example.demo.entity.Actor;
 import com.example.demo.entity.Pelicula;
 import com.example.demo.repository.ActorRepo;
@@ -29,13 +33,20 @@ public class Controller {
 	 * @return
 	 */
 	@RequestMapping(value = "peliculas/", method = RequestMethod.GET)
-	public Iterable<Pelicula> getPelis (){ 
-		return peliculas.findAll();
+	public Iterable<PeliculaSimpleDTO> getPelis (){ 
+		return convertPeliculaToDto(peliculas.findAll());
 	}
 
+//	@RequestMapping(value = "peliculas/peli", method = RequestMethod.GET)
+//	public Optional<Pelicula> getPeli(Integer id) {
+//		return peliculas.findById(id);
+//		
+//	}
+//	
 	@RequestMapping(value = "peliculas/peli", method = RequestMethod.GET)
 	public Optional<PeliculaDTO> getPeli(Integer id) {
-		return convertToDto(peliculas.findById(id));
+		return convertPeliculaToDto(peliculas.findById(id));
+		
 	}
 	
 	
@@ -57,13 +68,13 @@ public class Controller {
 	 * @return
 	 */
 	@RequestMapping(value = "actores/", method = RequestMethod.GET)
-	public Iterable<Actor> getActores (){
-		return actores.findAll();
+	public Iterable<ActorSimpleDTO> getActores (){
+		return convertActorToDto(actores.findAll());
 	}
 
 	@RequestMapping(value = "actores/actor", method = RequestMethod.GET)
-	public Optional<Actor> getActor(Integer id) {
-		return actores.findById(id);
+	public Optional<ActorDTO> getActor(Integer id) {
+		return convertActorToDto(actores.findById(id));
 	}
 	
 	
@@ -80,7 +91,19 @@ public class Controller {
 	}
 	
 	
-	private Optional<PeliculaDTO> convertToDto(Optional<Pelicula> peli) {
+	private Iterable<PeliculaSimpleDTO> convertPeliculaToDto(Iterable<Pelicula> pelis) {
+		ModelMapper modelMapper = new ModelMapper();
+		ArrayList<PeliculaSimpleDTO> arrDTO = new ArrayList<PeliculaSimpleDTO>();
+		for(Pelicula peli : pelis) {
+			Pelicula entity = this.peliculas.save(peli);
+			PeliculaSimpleDTO dto  = modelMapper.map(entity, PeliculaSimpleDTO.class);
+			arrDTO.add(dto);
+		}
+		Iterable<PeliculaSimpleDTO> iterableDTO = arrDTO;
+		return iterableDTO;
+	} 
+	
+	private Optional<PeliculaDTO> convertPeliculaToDto(Optional<Pelicula> peli) {
 		ModelMapper modelMapper = new ModelMapper();
 		Pelicula entity = this.peliculas.save(peli.get());
 		PeliculaDTO dto  = modelMapper.map(entity, PeliculaDTO.class);
@@ -88,10 +111,24 @@ public class Controller {
 		return optDTO;
 	} 
 	
-//	private Pelicula convertToEntity(PeliculaDTO postDto) {
-//		ModelMapper modelMapper = new ModelMapper();
-//	    Pelicula post = modelMapper.map(postDto, Pelicula.class);
-//	    return post;
-//	}
+	private Iterable<ActorSimpleDTO> convertActorToDto(Iterable<Actor> pelis) {
+		ModelMapper modelMapper = new ModelMapper();
+		ArrayList<ActorSimpleDTO> arrDTO = new ArrayList<ActorSimpleDTO>();
+		for(Actor peli : pelis) {
+			Actor entity = this.actores.save(peli);
+			ActorSimpleDTO dto  = modelMapper.map(entity, ActorSimpleDTO.class);
+			arrDTO.add(dto);
+		}
+		Iterable<ActorSimpleDTO> iterableDTO = arrDTO;
+		return iterableDTO;
+	} 
+	
+	private Optional<ActorDTO> convertActorToDto(Optional<Actor> peli) {
+		ModelMapper modelMapper = new ModelMapper();
+		Actor entity = this.actores.save(peli.get());
+		ActorDTO dto  = modelMapper.map(entity, ActorDTO.class);
+		Optional<ActorDTO> optDTO = Optional.of(dto);
+		return optDTO;
+	} 
 
 }

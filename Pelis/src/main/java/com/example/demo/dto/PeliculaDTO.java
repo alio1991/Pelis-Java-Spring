@@ -1,33 +1,54 @@
 package com.example.demo.dto;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class PeliculaDTO {
 
 	private Integer id;
 	private String title;
+	private String genre;
 	private String year;
-
-	public Integer getId() {
+	private String oscars;
+	@JsonIgnoreProperties("peliculas")
+	private Set<ActorSimpleDTO> characters;
+	 
+	
+	public Integer getId() { 
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	public String getYear() {
 		return year;
 	}
-
 	public void setYear(String year) {
 		this.year = year;
 	}
-
+	public String getOscarAwards() {
+		return oscars;
+	}
+	public void setOscarAwards(String oscarAwards) {
+		this.oscars = oscarAwards;
+	}
+	public Set<ActorSimpleDTO> getCharacters() {
+		return characters;
+	}
+	public void setCharacters(Set<ActorSimpleDTO> characters) {
+		this.characters = characters;
+	}
 }
